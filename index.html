@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html manifest="ant.manifest">
+<head>
+	<title>ANT</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script src="js/onLoad.js" type="text/javascript"></script>
+	<script src="js/timer.js" type="text/javascript"></script>
+	<script src="js/navigation.js" type="text/javascript"></script>
+	<script src="js/timer.js" type="text/javascript"></script>
+	<script src="js/export.js" type="text/javascript"></script>
+	<script src="js/random.js" type="text/javascript"></script>
+	<script src="js/analyzeResults.js" type="text/javascript"></script>
+	<script src="js/trial.js" type="text/javascript"></script>
+	<script src="js/statistics.js" type="text/javascript"></script>
+	<script src="js/dates.js" type="text/javascript"></script>
+	<script src="js/display.js" type="text/javascript"></script>
+	<script src="config/trialSet.js" type="text/javascript"></script>
+	<script src="config/targetTypes.js" type="text/javascript"></script>
+	<script src="config/dimensions.js" type="text/javascript"></script>
+</head>
+<body onload="onLoad();">
+	<div id="content">
+		<div id="formInput" class="instructionsPage">
+			<center>
+			<br />
+			<!-- <img src="images/Logo.png" id='logo' width="25%"/> -->
+			<h1>ANT Task</h1>
+			<!-- <p id="browserWarning">Other browsers are UNSUPPORTED but may work.  Internet Explorer will yield INACCURATE results and is NOT recommended.</p> -->
+			<p>	Kindly re-enter your generated participant ID:<br />
+				Hint: Combine your birth date and the last two digits of your phone number.<br />
+				For example, if my name birth date is 09 and my phone number is 9924567871, my Participant ID would be 0971.<br />
+			</p>
+			<p>Please enter the following information:</p>
+			</center>
+			<form name="form" id="form">
+				<label>ID:</label>
+				<input type="text" name="ID" id="ID" />
+				<br />
+				<!-- <label>Age:</label>
+				<input type="text" name="age" id="age" />
+				<br />
+				<label>Gender:</label>
+				<input type="radio" name="gender" value="M" />Male
+				<input type="radio" name="gender" value="F" />Female
+				<br />
+				<label>Session #:</label>
+				<input type="text" name="sessionNumber" id="sessionNumber" />
+				<br />
+				<label>Study ID:</label>
+				<input type="text" name="studyID" id="studyID" />
+				<br />
+				<label>Group ID:</label>
+				<input type="text" name="groupID" id="groupID" />
+				<br />
+				<label>Target Type:</label>   -->
+				<p hidden>
+				<select name="targetType" id="targetType" size="1">
+				</select>
+				</p>
+				<label>Monitor Diagonal:</label>
+				<select name="monitorSize" id="monitorSize">
+					<option value="7">7"</option>
+					<option value="8">8"</option>
+					<option value="9">9"</option>
+					<option value="10">10"</option>
+					<option value="11">11"</option>
+					<option value="12">12"</option>
+					<option value="13">13"</option>
+					<option value="14">14"</option>
+					<option value="15" selected>15"</option>
+					<option value="16">16"</option>
+					<option value="17">17"</option>
+					<option value="18">18"</option>
+					<option value="19">19"</option>
+					<option value="20">20"</option>
+					<option value="21">21"</option>
+					<option value="22">22"</option>
+					<option value="23">23"</option>
+					<option value="24">24"</option>
+					<option value="25">25"</option>
+					<option value="26">26"</option>
+					<option value="27">27"</option>
+					<option value="28">28"</option>
+					<option value="29">29"</option>
+					<option value="30">30"</option>
+				</select>
+				<br />
+			</form>
+			<center>
+			<p id="fullscreenNote">For best experience, use fullscreen (<span class='fullscreenKey'>F11</span>)</p>
+			</center>
+			<button class="previousButton" onclick="document.form.reset();popView();">Previous</button>
+			<button class="nextButton" onclick="submitForm();">Next</button>
+		</div>
+
+		<div id="demographyPage" class="instructionsPage" style="visibility:hidden">
+			<!-- <a class="typeform-share button" href="https://form.typeform.com/to/jNB1X0oI?typeform-medium=embed-snippet" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#3A7685;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-size="100" target="_blank">Launch me </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> -->
+			<div class="typeform-widget" data-url="https://form.typeform.com/to/tceFaY93?typeform-medium=embed-snippet" style="width: 100%; height: 100%;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+			<!-- <input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" /> -->
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('emotionTaskPage');" />
+		</div>
+
+		<div id="emotionTaskPage" class="instructionsPage" style="visibility:hidden">
+			<!-- <a class="typeform-share button" href="https://form.typeform.com/to/jNB1X0oI?typeform-medium=embed-snippet" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#3A7685;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-size="100" target="_blank">Launch me </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> -->
+			<div class="typeform-widget" data-url="https://form.typeform.com/to/Dqhl8v91?typeform-medium=embed-snippet" style="width: 100%; height: 100%;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('formInput');" />
+		</div>
+
+		<div id="instructionPage1" class="instructionsPage" style="visibility:hidden">
+			<p>This task will test how you attend to information to make a decision.<br>
+			On each trial, you will be shown <b>five pickup trucks</b> on the screen pointing either to the left or to the right. </p>
+			<p>For example they could be one of the following:</p>
+			<center>
+			<img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" />
+			</center>
+
+			<center>
+			<img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" />
+			</center>
+
+			<center>
+			<img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" />
+			</center>
+
+			<p>You are required only to respond to the direction of the <b>CENTRAL TRUCK</b>.</p>
+
+			<p>You should press the:<br>
+			<b>LEFT SHIFT KEY</b> if the <b>CENTRAL TRUCK</b> points to the <b>LEFT</b><br>
+			<b>RIGHT SHIFT KEY</b> if the <b>CENTRAL TRUCK</b> points to the <b>RIGHT</b></p>
+
+
+
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('instructionPage2');" />
+		</div>
+
+		<div id="instructionPage2" class="instructionsPage" style="visibility:hidden">
+			<p>The five trucks might all look in the same direction or they might look in the different directions.<br>
+				Your task is to determine the <i>direction</i> of the truck in the <b>CENTER TRUCK</b>.
+
+			<center>
+				<table id="instructionPageTable">
+					<tr>
+						<td><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /></td>
+					</tr>
+					<tr>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+					</tr>
+					<tr>
+						<td><img src="images/plus.png" class="cue" /></td>
+						<td class="spacing">OR</td>
+						<td><img src="images/plus.png" class="cue" /></td>
+						<td class="spacing">OR</td>
+						<td><img src="images/plus.png" class="cue" /></td>
+					</tr>
+					<tr>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+					</tr>
+					<tr>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+						<td><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /></td>
+						<td class="spacing"></td>
+						<td class="spacing"></td>
+					</tr>
+				</table>
+			</center>
+			<p>Before the trucks appear, you will see a <img src="images/plus.png" width="30" height="30"> at the center of the screen. Make sure that you are looking at the <img src="images/plus.png" width="30" height="30"> all the time.<br>The truck will either appear at the <b>TOP</b> of the screen or at the <b>BOTTOM</b> of the screen.
+			</p>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('instructionPage3');" />
+		</div>
+
+		<div id="instructionPage3" class="instructionsPage" style="visibility:hidden">
+			<p>Sometimes, you might also see a <img src="images/star.png" class="cue imageintext" width="20" height="20" />.<br>
+			If you see the <img src="images/star.png" class="cue imageintext" width="20" height="20" />  to the top or to the bottom of <img src="images/plus.png" width="30" height="30">, you will know <b>WHERE</b> the trucks are going to appear.</p>
+
+			<p>If you see two <img src="images/star.png" class="cue imageintext" width="20" height="20" /> at the top and at the bottom, you will <b>NOT KNOW WHERE</b> the truck will appear.<br>
+				If you see no or one <img src="images/star.png" class="cue imageintext" width="20" height="20" /> in the middle, you will <b>NOT KNOW WHERE</b> the truck will appear.
+				</p>
+
+
+
+
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('instructionPage4');" />
+		</div>
+
+		<div id="instructionPage4" class="instructionsPage" style="visibility:hidden">
+			<p>Remember, your task is to respond to the direction of the <b>CENTER TRUCK</b>. So make sure you press the key that matches where the <b>CENTER TRUCK</b> is pointing. </p>
+				<p>When the truck appears, try to press the corresponding key that matches the direction of the <b>CENTER TRUCK</b> as quickly as possible as you can, but not so fast that you will make a mistake.</p>
+
+				<p>For the practice block, you will receive feedback for your response. However, no feedback will be provided for the test trials.</p>
+
+				<p>There will be one practice block, followed by three test trials.</p>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('instructionPage5');" />
+		</div>
+
+		<div id="instructionPage5" class="instructionsPage" style="visibility:hidden">
+			<p>Kindly make sure that you are seated at a distance of 65 cm  from the screen of your laptop or computer. </p>
+			<p>Press the READY when you are ready to begin the  practice session.</p>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Ready" onclick="areYouReady();" />
+		</div>
+
+		<div id="testPageContainer" style="visibility:hidden">
+			<div id="testPage" style="visibility:hidden">
+				<center>
+				<!--Blank View-->
+				<div id="blankView" class="display" style="visibility:hidden">
+				</div>
+				<!--No Cue-->
+				<div id="noCue" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Center Cue-->
+				<div id="centerCue" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/star.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Double Cue-->
+				<div id="doubleCue" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/star.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/star.png" class="cue" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Spatial Cue Up-->
+				<div id="spatialCueUp" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/star.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Spatial Cue Down-->
+				<div id="spatialCueDown" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/star.png" class="cue" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Top Congruent Right-->
+				<div id="congruentUpRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Top Congruent Left-->
+				<div id="congruentUpLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Top Incongruent Right-->
+				<div id="incongruentUpRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Top Incongruent Left-->
+				<div id="incongruentUpLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!--Bottom Congruent Right-->
+				<div id="congruentDownRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Bottom Congruent Left-->
+				<div id="congruentDownLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Bottom Incongruent Right-->
+				<div id="incongruentDownRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Bottom Incongruent Left-->
+				<div id="incongruentDownLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!-- Top Neutral Left -->
+				<div id="neutralUpLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!-- Top Neutral Right -->
+				<div id="neutralUpRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" />
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<div class="target"></div>
+					<div class="frameMargin"></div>
+				</div>
+				<!-- Bottom Neutral Left -->
+				<div id="neutralDownLeft" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowLeft.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!-- Bottom Neutral Right -->
+				<div id="neutralDownRight" class="display" style="visibility:hidden">
+					<div class="frameMargin"></div>
+					<div class="target"></div>
+					<div class="spacing"></div>
+					<img src="images/plus.png" class="cue" />
+					<div class="spacing"></div>
+					<img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowRight.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" /><img src="images/targets/ArrowNeutral.png" class="target" />
+					<div class="frameMargin"></div>
+				</div>
+				<!--Practice Feedback-->
+				</center>
+				<div id="practiceFeedbackUP" class="practiceFeedback"></div>
+				<div id="practiceFeedbackDOWN" class="practiceFeedback"></div>
+			</div>
+		</div>
+
+		<div id="exportPage" class="instructionsPage" style="visibility:hidden">
+			<center>
+				<h1>Save Data</h1>
+				<h3>Follow these instructions to save your test data.</h3>
+				<br />
+
+				<table>
+					<tr><td><h3>Summary Data Export</h3></td><td><h3>Raw Data Export</h3></td></tr>
+					<tr>
+						<td>
+							<ol>
+								<li>Press <span class='fullscreenKey'>F11</span> to leave fullscreen mode</li>
+								<li>Copy the following text: <input id="summaryFilename" class="filename" /></li>
+								<li>Click this link:
+									<div id="summaryExport"></div>
+									<div id="summaryExportLink"></div>
+								</li>
+								<li>Choose "File" --> "Save Page As" option.</li>
+								<li>Paste the above text as the name of the file in the save dialog, select destination and click the "Save" button.</li>
+							</ol>
+						</td>
+						<td>
+							<ol>
+								<li>Press <span class='fullscreenKey'>F11</span> to leave fullscreen mode</li>
+								<li>Copy the following text: <input id="dataFilename" class="filename" /></li>
+								<li>Click this link:
+									<div id="dataExport"></div>
+									<div id="dataExportLink"></div>
+								</li>
+								<li>Choose "File" --> "Save Page As" option.</li>
+								<li>Paste the above text as the name of the file in the save dialog, select destination and click the "Save" button.</li>
+							</ol>
+						</td>
+					</tr>
+				</table>
+			</center>
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('bdiPage');" />
+		</div>
+
+		<div id="bdiPage" class="instructionsPage" style="visibility:hidden">
+			<!-- <a class="typeform-share button" href="https://form.typeform.com/to/VeJeGgTh" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#3A7685;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Launch me </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> -->
+			<div class="typeform-widget" data-url="https://form.typeform.com/to/VeJeGgTh" style="width: 100%; height: 100%;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('dasfPage');" />
+		</div>
+
+		<div id="dasfPage" class="instructionsPage" style="visibility:hidden">
+			<!-- <a class="typeform-share button" href="https://form.typeform.com/to/TGv3jRxq" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#3A7685;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Launch me </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> -->
+			<div class="typeform-widget" data-url="https://form.typeform.com/to/TGv3jRxq" style="width: 100%; height: 100%;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+			<input class="previousButton" type="button" name="previous" value="Previous" onclick="popView();" />
+			<input class="nextButton" type="button" name="next" value="Next" onclick="pushView('thankYouPage');" />
+		</div>
+
+		<div id="thankYouPage" class="instructionsPage" style="visibility:hidden">
+			<center>
+			<br />
+			<h3>Thank you for participating in the study!<br />
+				We truly appreciate your help to advance this study. We are looking for the volunteers in the age range between 18 and 27.<br />
+				So, feel free to share the link (below) with people who you think would be interested.<br />
+				<a href="https://pac-iiit.github.io/ant_task/index.html">https://pac-iiit.github.io/ant_task/index.html</a><br />
+			</h3>
+			</center>
+		</div>
+
+	</div>
+	<!-- <div id="attribution">
+		<a href="http://idaios.com/"><img src="images/idaios.png" id="idaioslogo" /></a>
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons Licence" style="border-width:0" src="images/cc-by-nc-sa.png" /></a>
+	</div> -->
+</body>
+</html>
